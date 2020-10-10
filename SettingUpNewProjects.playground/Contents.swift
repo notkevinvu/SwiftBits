@@ -46,21 +46,26 @@ import UIKit
  
  -------- Converting from storyboard to programmatic UI --------
  
- 13. Go to the Info.plist file in the xcode project, find the 'Main storyboard
- file base name' key, and delete it. We will keep Main.storyboard just in case
- we want to use it for prototyping (though you can delete it if you want).
- DON'T BUILD OR RUN THE PROJECT YET.
+ 13. Go to the Info.plist file in the xcode project, cmd+f and search for 'storyboard',
+ and delete these two keys: 'Main storyboard file base name', and 'Storyboard
+ Name'. We will keep Main.storyboard just in case we want to use it for prototyping
+ (though you can delete it if you want). DON'T BUILD OR RUN THE PROJECT YET.
  
- 14. We must now tell the compiler what UI to show now. Go to 'AppDelegate.swift'
- and add the following code to the application(_: didFinishLaunchingWithOptions:)
- function, before the return:
+ 14. We must now tell the compiler what UI to show now. Go to 'SceneDelegate.swift'
+ and add the following code to the scene(_ scene:, willConnectTo session:) function:
  
- window = UIWindow(frame: UIScreen.main.bounds)
- window?.makeKeyAndVisible()
- let navController = UINavigationController()
+ 
+ guard let windowScene = (scene as? UIWindowScene) else { return }
+ 
+ let window = UIWindow(windowScene: windowScene)
+ 
  let vc = ExampleViewController()
- navController.viewControllers = [vc]
- window?.rootViewController = navController
+ let navController = UINavigationController(rootViewController: vc)
+ 
+ window.rootViewController = navController
+ self.window = window
+ window.makeKeyAndVisible()
+ 
  
  ** If we want to use a tab bar controller, set the tab bar controller as the
  root view controller, then add the nav controller to the tab bar controller
