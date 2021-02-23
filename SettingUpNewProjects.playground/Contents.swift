@@ -25,7 +25,8 @@ import UIKit
  press escape and type :wq and hit enter to save the file.
  
  8. Create a new repository wherever you want (just use github for now - initialize
- repo with a readme as well)
+ repo without a readme as well - won't need to do the whole git pull --rebase thing. 
+ Instead, after adding the remote, we do 'git push -u origin master')
  
  9. Get the HTTPS cloning link from github (usually the link to the repo with .git
  at the end) and go back to terminal to add the remote repo with the command:
