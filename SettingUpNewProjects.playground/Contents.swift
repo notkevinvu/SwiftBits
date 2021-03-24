@@ -31,28 +31,27 @@ import UIKit
  9. Get the HTTPS cloning link from github (usually the link to the repo with .git
  at the end) and go back to terminal to add the remote repo with the command:
  'git remote add origin <HTTPS clone link>'
+
+ 10. Add all files from project ('git add .'), commit them ('git commit -m "Initial 
+ commit"'), and then push them ('git push --set-upstream origin master') to the
+ github repo.
+
+ ** If you did decide to create a readme when creating the repo, I believe you need
+ to perform 'git pull --rebase origin master' to pull the readme commit from the
+ github/remote repo.
  
- ** Probably better to initialize WITHOUT a readme - won't need to do the whole
- git pull --rebase thing. Instead, after adding the remote, we do 'git push -u
- origin master'
- 
- 10. Enter 'git fetch' and enter the username and password for your github account
- 
- 11. Enter 'git pull --rebase origin master' to pull the readme commit from
- the remote repo
- 
- 12. Git should be properly set up now. We can create branches for our tickets/work,
+ 11. Git should be properly set up now. We can create branches for our tickets/work,
  add files via 'git add ...', commit the changes via 'git commit -m "Commit message
  here" ', then use 'git push origin <branch name>'
  
  -------- Converting from storyboard to programmatic UI --------
  
- 13. Go to the Info.plist file in the xcode project, cmd+f and search for 'storyboard',
+ 12. Go to the Info.plist file in the xcode project, cmd+f and search for 'storyboard',
  and delete these two keys: 'Main storyboard file base name', and 'Storyboard
  Name'. We will keep Main.storyboard just in case we want to use it for prototyping
  (though you can delete it if you want). DON'T BUILD OR RUN THE PROJECT YET.
  
- 14. We must now tell the compiler what UI to show now. Go to 'SceneDelegate.swift'
+ 13. We must now tell the compiler what UI to show now. Go to 'SceneDelegate.swift'
  and add the following code to the scene(_ scene:, willConnectTo session:) function:
  
  
