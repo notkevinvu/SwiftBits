@@ -37,6 +37,13 @@ extension TestView {
 
     // MARK: - Collection view layout
     private func createLayout() -> UICollectionViewLayout {
+        /*
+         Compositional layouts are usually comprised of items, groups, and
+         sections. Items fit into groups and groups fit into sections.
+         
+         The layout is built using sections while the sections themselves are
+         comprised of group instances.
+         */
         
         // width fills its container's width, and likewise for the height
         // groups are usually the containers for items
