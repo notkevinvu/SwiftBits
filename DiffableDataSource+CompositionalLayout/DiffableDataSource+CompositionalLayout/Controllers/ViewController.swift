@@ -81,9 +81,14 @@ class ViewController: UIViewController {
         dataSource.applySnapshot(forItems: [
             DiffableDataSource.ModelForSnapshot(models: modelArray, section: .arrayOne),
             DiffableDataSource.ModelForSnapshot(models: modelArrayTwo, section: .arrayTwo),
-            DiffableDataSource.ModelForSnapshot(models: modelArrayThree, section: .arrayTwo)
+            DiffableDataSource.ModelForSnapshot(models: modelArrayThree, section: .arrayThree)
         ])
     }
+    
+    
+    // MARK: - Data source code
+    // the following code is sample code if we were to simply implement it
+    // within the view controller rather than as its own class
     
 //    private func makeDataSource() -> DataSource {
 //        return DataSource(collectionView: contentView.collectionView, cellProvider: { (collectionView, indexPath, model) -> UICollectionViewCell? in
