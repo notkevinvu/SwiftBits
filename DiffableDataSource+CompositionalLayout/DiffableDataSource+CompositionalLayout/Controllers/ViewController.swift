@@ -78,6 +78,9 @@ class ViewController: UIViewController {
     }
     
     private func fetchModels() {
+        // in a real app, fetchModels() should call a method from the data store
+        // to fetch data to feed the collection view. Once we get the data,
+        // we pass in the below code
         dataSource.applySnapshot(forItems: [
             DiffableDataSource.ModelForSnapshot(models: modelArray, section: .arrayOne),
             DiffableDataSource.ModelForSnapshot(models: modelArrayTwo, section: .arrayTwo),
