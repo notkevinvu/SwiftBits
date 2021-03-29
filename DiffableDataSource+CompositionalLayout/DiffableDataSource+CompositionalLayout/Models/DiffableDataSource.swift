@@ -36,6 +36,8 @@ final class DiffableDataSource: NSObject {
 // MARK: - Utility methods
 extension DiffableDataSource {
     
+    
+    // MARK: - Make data source
     private func makeDataSource(forCollectionView collectionView: UICollectionView) -> DataSource {
         return DataSource(collectionView: collectionView, cellProvider: { (collectionView, indexPath, model) -> UICollectionViewCell? in
             
@@ -54,6 +56,7 @@ extension DiffableDataSource {
         })
     }
     
+    // MARK: - Apply snapshot
     public func applySnapshot(forItems items: [ModelForSnapshot]) {
         var snapshot = NSDiffableDataSourceSnapshot<Section, TestModel>()
         
@@ -86,6 +89,8 @@ extension DiffableDataSource {
         dataSource.apply(snapshot, animatingDifferences: true)
     }
     
+    
+    // MARK: - Remove item
     public func remove(_ model: TestModel, animate: Bool = true) {
         var snapshot = dataSource.snapshot()
         snapshot.deleteItems([model])

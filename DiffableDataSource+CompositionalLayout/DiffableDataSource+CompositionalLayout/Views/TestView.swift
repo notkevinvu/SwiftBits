@@ -82,7 +82,6 @@ extension TestView {
         // if we want horizontal scrolling, we can set the orthogonalScrollingBehavior
         // property of each section to one of its non-none values (default is .none)
 //        section.orthogonalScrollingBehavior = .continuous
-        section.orthogonalScrollingBehavior = .continuous
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         

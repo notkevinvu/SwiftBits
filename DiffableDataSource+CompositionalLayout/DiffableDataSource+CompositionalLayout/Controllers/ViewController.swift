@@ -7,6 +7,14 @@
 
 import UIKit
 
+// MARK: - TODO:
+/*
+ If we ever want to utilize multiple sections that are user-editable (i.e.
+ the user can add or remove sections which serve as groupings), might be a good
+ idea to have a container array that holds the other arrays. Then, we can have
+ our applySnapshot() method add all of the sub-arrays to the snapshot.
+ */
+
 class ViewController: UIViewController {
     
     // MARK: - Properties
@@ -62,7 +70,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         configureNavBar()
         fetchModels()
-//        applySnapshot()
     }
     
     // MARK: - Setup
@@ -75,17 +82,38 @@ class ViewController: UIViewController {
         view.backgroundColor = .systemBackground
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Test View"
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(addTestItem))
     }
     
     private func fetchModels() {
         // in a real app, fetchModels() should call a method from the data store
         // to fetch data to feed the collection view. Once we get the data,
         // we pass in the below code
+        applySnapshot()
+    }
+    
+    // convenience method for applying snapshot
+    private func applySnapshot() {
         dataSource.applySnapshot(forItems: [
             DiffableDataSource.ModelForSnapshot(models: modelArray, section: .arrayOne),
             DiffableDataSource.ModelForSnapshot(models: modelArrayTwo, section: .arrayTwo),
             DiffableDataSource.ModelForSnapshot(models: modelArrayThree, section: .arrayThree)
         ])
+    }
+    
+    @objc private func addTestItem() {
+        let itemToAdd = TestModel(image: UIImage(systemName: "heart.fill")!)
+        modelArray.append(itemToAdd)
+        // when adding an item, all we need to do is add it to the corresponding
+        // array and then call our convenience method for applying a snapshot
+        // (this convenience method should apply a snapshot for all arrays we
+        // need)
+        
+        applySnapshot()
     }
     
     
