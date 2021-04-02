@@ -74,8 +74,7 @@ class ViewController: UIViewController {
     
     // MARK: - Setup
     private func setup() {
-        let view = TestView()
-        contentView = view
+        contentView = TestView()
     }
     
     private func configureNavBar() {

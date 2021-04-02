@@ -36,6 +36,12 @@ final class TestCollectionViewCell: UICollectionViewCell {
     // MARK: - View methods
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        // this method configures the corner radius of the image view in relation
+        // to its own bounds' height. Thus, we call this method here to work
+        // in conjunction with the layoutIfNeeded() method which gets called
+        // after a cell is dequeued and the image is set.
+        // This allows us to properly grab the imageView's bounds height
         configureSubviewLayers()
     }
     

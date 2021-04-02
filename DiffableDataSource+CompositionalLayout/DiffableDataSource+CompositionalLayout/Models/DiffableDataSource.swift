@@ -27,6 +27,7 @@ final class DiffableDataSource: NSObject {
     init(collectionView: UICollectionView) {
         super.init()
         self.dataSource = makeDataSource(forCollectionView: collectionView)
+        configureHeaderView()
     }
     
 }
@@ -49,11 +50,24 @@ extension DiffableDataSource {
             // update cycle (i.e. synchronously instead of async as with
             // setNeedsLayout())
             // previously, if we used setNeedsLayout(), the cell does not
-            // properly call layoutSubviews() before we scroll to new cells
+            // properly call layoutSubviews() for every cell as we scroll
             cell?.layoutIfNeeded()
             
             return cell
         })
+    }
+    
+    // MARK: - Configure header view
+    private func configureHeaderView() {
+        dataSource.supplementaryViewProvider = { (collectionView: UICollectionView, kind: String, indexPath: IndexPath) -> UICollectionReusableView? in
+            
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: TestHeaderView.identifier,
+                for: indexPath) as? TestHeaderView
+            
+            return header
+        }
     }
     
     // MARK: - Apply snapshot
@@ -103,8 +117,8 @@ extension DiffableDataSource {
     enum Section: CaseIterable {
         case arrayOne,
              arrayTwo,
-             arrayThree
-//             arrayFour
+             arrayThree,
+             arrayFour
     }
 }
 

@@ -17,6 +17,7 @@
 		2540067E260FED9B00046624 /* TestCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540067D260FED9B00046624 /* TestCollectionViewCell.swift */; };
 		25400681260FEDA800046624 /* TestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25400680260FEDA800046624 /* TestModel.swift */; };
 		25400685260FEDB500046624 /* DiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25400684260FEDB500046624 /* DiffableDataSource.swift */; };
+		254006982616D68C00046624 /* TestHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254006972616D68C00046624 /* TestHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		2540067D260FED9B00046624 /* TestCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestCollectionViewCell.swift; sourceTree = "<group>"; };
 		25400680260FEDA800046624 /* TestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestModel.swift; sourceTree = "<group>"; };
 		25400684260FEDB500046624 /* DiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiffableDataSource.swift; sourceTree = "<group>"; };
+		254006972616D68C00046624 /* TestHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 			children = (
 				2540067A260FED8E00046624 /* TestView.swift */,
 				2540067D260FED9B00046624 /* TestCollectionViewCell.swift */,
+				254006972616D68C00046624 /* TestHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -176,6 +179,7 @@
 				25400685260FEDB500046624 /* DiffableDataSource.swift in Sources */,
 				2540067E260FED9B00046624 /* TestCollectionViewCell.swift in Sources */,
 				2540067B260FED8E00046624 /* TestView.swift in Sources */,
+				254006982616D68C00046624 /* TestHeaderView.swift in Sources */,
 				25400678260FED6700046624 /* ViewController.swift in Sources */,
 				25400681260FEDA800046624 /* TestModel.swift in Sources */,
 				2540065F260FEC9E00046624 /* AppDelegate.swift in Sources */,

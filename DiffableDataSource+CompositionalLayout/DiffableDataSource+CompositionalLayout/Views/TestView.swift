@@ -16,6 +16,7 @@ class TestView: UIView {
         cView.backgroundColor = .systemBackground
         
         cView.register(TestCollectionViewCell.self, forCellWithReuseIdentifier: TestCollectionViewCell.identifier)
+        cView.register(TestHeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: TestHeaderView.identifier)
         
         return cView
     }()
@@ -82,6 +83,23 @@ extension TestView {
         // if we want horizontal scrolling, we can set the orthogonalScrollingBehavior
         // property of each section to one of its non-none values (default is .none)
 //        section.orthogonalScrollingBehavior = .continuous
+        
+        // creation of a header boundary supplementary view for sections
+        // we can use this as a basis for footer views; just need to change the
+        // alignment
+        let headerSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .fractionalHeight(0.1))
+        let header = NSCollectionLayoutBoundarySupplementaryItem(
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top)
+        header.pinToVisibleBounds = true
+        section.boundarySupplementaryItems = [header]
+        
+        // self explanatory, we can have spacing in between sections
+        let config = UICollectionViewCompositionalLayoutConfiguration()
+        config.interSectionSpacing = 10
         
         let layout = UICollectionViewCompositionalLayout(section: section)
         
