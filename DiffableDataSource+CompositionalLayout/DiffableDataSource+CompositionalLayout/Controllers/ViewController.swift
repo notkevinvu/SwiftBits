@@ -13,6 +13,10 @@ import UIKit
  the user can add or remove sections which serve as groupings), might be a good
  idea to have a container array that holds the other arrays. Then, we can have
  our applySnapshot() method add all of the sub-arrays to the snapshot.
+ 
+ Even further than this, I believe it is possible to create structs for each
+ section, which then contain an array of the items we want to put in each section
+ as well as a variable that represents the section it should go in
  */
 
 class ViewController: UIViewController {

@@ -26,7 +26,6 @@ final class TestCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: .zero)
         setupSubviews()
-        layer.borderWidth = 1
     }
     
     required init?(coder: NSCoder) {
@@ -67,7 +66,7 @@ final class TestCollectionViewCell: UICollectionViewCell {
     }
     
     private func configureSubviewLayers() {
-        imageView.layer.cornerRadius = imageView.bounds.height / 2
+        imageView.layer.cornerRadius = imageView.bounds.width / 2
     }
 }
 

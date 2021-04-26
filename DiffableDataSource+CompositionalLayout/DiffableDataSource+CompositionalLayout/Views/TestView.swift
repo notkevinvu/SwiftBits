@@ -10,6 +10,7 @@ import UIKit
 // MARK: - Custom view
 class TestView: UIView {
     
+    // MARK: - UI Properties
     lazy var collectionView: UICollectionView = {
         let cView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
         cView.translatesAutoresizingMaskIntoConstraints = false
@@ -21,6 +22,8 @@ class TestView: UIView {
         return cView
     }()
     
+    
+    // MARK: - View lifecycle
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCollectionView()
@@ -52,7 +55,6 @@ extension TestView {
             widthDimension: .fractionalWidth(0.5),
             heightDimension: .fractionalHeight(1.0))
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        item.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 8, bottom: 0, trailing: 8)
         
         /*
          for groups:
@@ -78,6 +80,9 @@ extension TestView {
         let group = NSCollectionLayoutGroup.horizontal(
             layoutSize: groupSize,
             subitems: [item])
+        let inset: CGFloat = 10
+        group.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: inset, bottom: 10, trailing: inset)
+        group.interItemSpacing = .flexible(0)
         
         let section = NSCollectionLayoutSection(group: group)
         // if we want horizontal scrolling, we can set the orthogonalScrollingBehavior

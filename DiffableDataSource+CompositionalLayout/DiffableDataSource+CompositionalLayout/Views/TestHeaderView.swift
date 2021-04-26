@@ -68,7 +68,6 @@ final class TestHeaderView: UICollectionReusableView {
         let label = UILabel(frame: .zero)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 26)
-        label.tintColor = .red
         label.textAlignment = .center
         label.text = "TEST HEADER VIEW"
         
