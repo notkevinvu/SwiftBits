@@ -28,7 +28,7 @@ extension CustomView {
 
 4) Go back to the view controller you want to add the view to and add a variable to hold the view. `var contentView: UIView!`
 
-5) If you don't have one yet, create a `setupView()` method (or even `setup()` if you want to setup more objects) and configure it like so:
+5) If you don't have one yet, create a `setupView()` method and configure it like so:
 ```swift
 private func setupView() {
     let customView = CustomView()
